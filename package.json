@@ -1,0 +1,30 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "src/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run build && node --experimental-modules dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fe-nov22-code-wizards/api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fe-nov22-code-wizards/api/issues"
+  },
+  "homepage": "https://github.com/fe-nov22-code-wizards/api#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
+  }
+}
