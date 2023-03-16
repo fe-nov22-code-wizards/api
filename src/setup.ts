@@ -8,7 +8,7 @@ import { PhoneItem } from './dbInit/models/PhoneItem';
   try {
     await Phone.sync({ alter: true });
     await PhoneItem.sync({ alter: true });
-  } catch(error) {
+  } catch (error) {
     console.error(`Error message ${error}`);
   }
 
