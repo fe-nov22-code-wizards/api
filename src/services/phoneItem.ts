@@ -2,7 +2,7 @@ import { PhoneItem } from '../dbInit/models/PhoneItem';
 import { PhoneItemType } from '../types/PhoneItem';
 
 export const normalize = (phoneItem: PhoneItemType) => {
-  const copyPhoneItem = {...phoneItem};
+  const copyPhoneItem = { ...phoneItem };
 
   return copyPhoneItem;
 };
