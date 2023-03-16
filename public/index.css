@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #e9e7df;
+  color: antiquewhite;
+}
+
+.wrapper {
+  position: relative;
+  top: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  width: max-content;
+  border-radius: 15px;
+  background-color: #6f1d93;
+  box-shadow: -1px 2px 30px -8px rgba(0, 0, 0, 0.62);
+  transform: translateY(-50%);
+}
+
+.wrapper_title {
+  margin: 5px;
+  text-align: center;
+}
+
+.wrapper_list {
+  width: max-content;
+  padding: 10px;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.wrapper_img {
+  width: 25px;
+  margin-left: 5px;
+}
+
