@@ -5,7 +5,7 @@ export const getImage = async(req: Request, res: Response) => {
 
   try {
     res.sendFile(imgPath);
-  } catch(error) {
+  } catch (error) {
     res.sendStatus(400);
   }
 };
