@@ -12,7 +12,6 @@ import {
   createdAt: false,
   updatedAt: false,
 })
-
 export class PhoneItem extends Model {
   @PrimaryKey
   @AllowNull(false)
@@ -77,7 +76,7 @@ export class PhoneItem extends Model {
 
   @AllowNull(false)
   @Column({
-    type: DataTypes.JSONB,
+    type: DataTypes.JSON,
   })
     description: { title: string; text: string[] }[];
 
