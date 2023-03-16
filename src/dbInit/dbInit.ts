@@ -15,7 +15,7 @@ export const dbInit = () => {
     dialectOptions: {
       ssl: {
         rejectUnauthorized: true,
-      }
+      },
     },
   });
 
