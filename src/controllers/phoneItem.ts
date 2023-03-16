@@ -27,6 +27,6 @@ export const getOne = async(req: Request, res: Response) => {
 
     return foundPhone;
   } catch (error) {
-    res.sendStatus(500);
+    res.sendStatus(400);
   }
 };

@@ -23,4 +23,3 @@ export interface PhoneItemType {
   zoom: string;
   cell: string[];
 }
-
