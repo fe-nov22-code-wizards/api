@@ -10,9 +10,10 @@ export const getAll = async(req: Request, res: Response) => {
   if (!page && !size) {
     try {
       const phones = await phoneService.getAll();
-  
+
       res.send(phones);
     } catch (error) {
+      console.error(`Error is ${error}`);
       res.sendStatus(400);
     }
   } else {
@@ -21,19 +22,19 @@ export const getAll = async(req: Request, res: Response) => {
     } else {
       pageValue = +page;
     }
-  
+
     if (!size) {
       sizeValue = 16;
     } else {
       sizeValue = +size;
     }
-  
+
     try {
       const phones = await phoneService.getAllWithPagination(
-        pageValue, 
-        sizeValue
+        pageValue,
+        sizeValue,
       );
-  
+
       res.send(phones);
     } catch (error) {
       res.sendStatus(400);
