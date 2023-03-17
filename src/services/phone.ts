@@ -21,7 +21,7 @@ export const getAllWithPagination = async(page: number, size: number) => {
     info: {
       total,
       page,
-      size
-    }
+      size,
+    },
   };
 };
