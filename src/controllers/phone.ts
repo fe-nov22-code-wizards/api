@@ -41,3 +41,30 @@ export const getAll = async(req: Request, res: Response) => {
     }
   }
 };
+
+export const getNew = async(req: Request, res: Response) => {
+  try {
+    const phones = await phoneService.getAll();
+    const newestPhones = phones.filter(phone => +phone.year >= 2019);
+
+    res.send(newestPhones);
+  } catch(error) {
+    res.sendStatus(400);
+  }
+};
+
+export const getHotPrices = async(req: Request, res: Response) => {
+  try {
+    const phones = await phoneService.getAll();
+    const bigDiscountPhone = [...phones].sort((phoneA, phoneB) => {
+      const previousDiscount = phoneA.fullPrice - phoneA.price;
+      const currentDiscount = phoneB.fullPrice - phoneB.price;
+
+      return currentDiscount - previousDiscount;
+    }).slice(0, 10);
+
+    res.send(bigDiscountPhone);
+  } catch(error) {
+    res.sendStatus(400);
+  }
+};
