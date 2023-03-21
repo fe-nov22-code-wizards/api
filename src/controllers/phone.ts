@@ -2,12 +2,12 @@ import * as phoneService from '../services/phone';
 import { Request, Response } from 'express';
 
 export const getAll = async(req: Request, res: Response) => {
-  const { page, size } = req.query;
+  const { page, perPage } = req.query;
 
   let pageValue: number;
   let sizeValue: number;
 
-  if (!page && !size) {
+  if (!page && !perPage) {
     try {
       const phones = await phoneService.getAll();
 
@@ -23,10 +23,10 @@ export const getAll = async(req: Request, res: Response) => {
       pageValue = +page;
     }
 
-    if (!size) {
-      sizeValue = 16;
+    if (!perPage) {
+      sizeValue = 24;
     } else {
-      sizeValue = +size;
+      sizeValue = +perPage;
     }
 
     try {
