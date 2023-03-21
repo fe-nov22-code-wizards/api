@@ -16,3 +16,26 @@ export const getById = async(phoneId: string) => {
 
   return phone;
 };
+
+export const getSimilar = async(phoneId: string) => {
+  try {
+    const currentPhone = await PhoneItem.findByPk(phoneId);
+
+    if (currentPhone === null) {
+      return;
+    }
+
+    const currentPrice = +currentPhone.priceRegular;
+
+    const allPhones = await getAll();
+    const filteredPhones = allPhones.filter(
+      (phone) =>
+        currentPrice >= +phone.priceRegular - 100 &&
+        currentPrice <= +phone.priceRegular + 100,
+    );
+
+    return filteredPhones;
+  } catch (error) {
+    console.error(error);
+  }
+};

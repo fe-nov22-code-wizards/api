@@ -30,3 +30,21 @@ export const getOne = async(req: Request, res: Response) => {
     res.sendStatus(400);
   }
 };
+
+export const getSimilar = async(req: Request, res: Response) => {
+  const { phoneId } = req.params;
+
+  try {
+    const similarProducts = await phoneItemService.getSimilar(phoneId);
+
+    if (!similarProducts) {
+      res.sendStatus(404);
+
+      return;
+    }
+
+    res.send(similarProducts);
+  } catch (error) {
+    res.sendStatus(400);
+  }
+};
