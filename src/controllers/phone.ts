@@ -2,52 +2,26 @@ import * as phoneService from '../services/phone';
 import { Request, Response } from 'express';
 
 export const getAll = async(req: Request, res: Response) => {
-  const { page, perPage } = req.query;
+  const { page = 1, perPage = 24, sort = '' } = req.query;
 
-  let pageValue: number;
-  let sizeValue: number;
+  try {
+    const phones = await phoneService.getAll(
+      Number(page),
+      Number(perPage),
+      String(sort),
+    );
 
-  if (!page && !perPage) {
-    try {
-      const phones = await phoneService.getAll();
-
-      res.send(phones);
-    } catch (error) {
-      console.error(`Error is ${error}`);
-      res.sendStatus(400);
-    }
-  } else {
-    if (!page) {
-      pageValue = 1;
-    } else {
-      pageValue = +page;
-    }
-
-    if (!perPage) {
-      sizeValue = 24;
-    } else {
-      sizeValue = +perPage;
-    }
-
-    try {
-      const phones = await phoneService.getAllWithPagination(
-        pageValue,
-        sizeValue,
-      );
-
-      res.send(phones);
-    } catch (error) {
-      res.sendStatus(400);
-    }
+    res.send(phones);
+  } catch (error) {
+    res.sendStatus(400);
   }
 };
 
 export const getNew = async(req: Request, res: Response) => {
   try {
-    const phones = await phoneService.getAll();
-    const newestPhones = phones.filter((phone) => +phone.year >= 2019);
+    const phones = await phoneService.getNew();
 
-    res.send(newestPhones);
+    res.send(phones);
   } catch (error) {
     res.sendStatus(400);
   }
@@ -56,7 +30,7 @@ export const getNew = async(req: Request, res: Response) => {
 export const getHotPrices = async(req: Request, res: Response) => {
   try {
     const phones = await phoneService.getAll();
-    const bigDiscountPhone = [...phones]
+    const bigDiscountPhone = [...phones.phones]
       .sort((phoneA, phoneB) => {
         const previousDiscount = phoneA.fullPrice - phoneA.price;
         const currentDiscount = phoneB.fullPrice - phoneB.price;
