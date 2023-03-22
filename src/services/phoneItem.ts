@@ -1,5 +1,6 @@
 import { PhoneItem } from '../dbInit/models/PhoneItem';
 import { PhoneItemType } from '../types/PhoneItem';
+import { getAll as regularPhones } from './phone';
 
 export const normalize = (phoneItem: PhoneItemType) => {
   const copyPhoneItem = { ...phoneItem };
@@ -27,11 +28,11 @@ export const getSimilar = async(phoneId: string) => {
 
     const currentPrice = +currentPhone.priceRegular;
 
-    const allPhones = await getAll();
-    const filteredPhones = allPhones.filter(
+    const { phones } = await regularPhones();
+    const filteredPhones = phones.filter(
       (phone) =>
-        currentPrice >= +phone.priceRegular - 100 &&
-        currentPrice <= +phone.priceRegular + 100,
+        currentPrice >= +phone.fullPrice - 100 &&
+        currentPrice <= +phone.fullPrice + 100,
     );
 
     return filteredPhones;

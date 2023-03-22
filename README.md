@@ -19,6 +19,9 @@ Our web application is hosted and deployed on Render.com, a reliable cloud platf
 # Endpoints
 
 - /phones - to get all phones
-- /phones?page=X&size=Y - to get all phones per page
+- /phones?page=X&perPage=Y - to get all phones per page
 - /phones/phoneId - to get details about phone
+- /phones/new - to get the newest phones
+- /phones/discount - to get phones with best discounts
+- /phones/phoneId/recomended - to get recommended phones according selected one
 - /imgPath - to get image that you need
