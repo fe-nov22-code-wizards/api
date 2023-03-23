@@ -10,13 +10,6 @@ export const getAll = async(page = 1, size = 24, sort?: string) => {
     args.order = [[sort, ordering]];
   }
 
-
-  // args.offset = (page - 1) * size;
-
-  // if (page > 2) {
-  //   args.offset = (page - 1) * size - size;
-  // }
-
   args.limit = page * size;
 
   const phones = await Phone.findAll(args);
