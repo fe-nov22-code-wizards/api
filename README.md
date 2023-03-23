@@ -1,4 +1,4 @@
-# Nice Gadgest store API
+# Nice Gadgets store API
 
 Introducing our online store, featuring an innovative single-page application that will take your shopping experience to the next level. With a sleek and intuitive design, our platform allows you to effortlessly browse our vast selection of products, add items to your cart and favorites, sort through our inventory, adjust quantities within your cart, and access detailed product information with just a few clicks.
 Say goodbye to the hassle of traditional online shopping and hello to the future of retail - only at our online store.
